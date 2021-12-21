@@ -1,0 +1,53 @@
+
+img{
+    align-items: center;
+}
+h3{
+    line-height: 97px;
+}
+
+
+main{
+    background-color: rgb(0, 255, 200);
+    height: 550px;
+}
+
+.ms_container_num {
+    padding: 30px 0;
+}
+
+.box,
+.bo,
+.b{
+    height: 50px;
+    margin: 0;
+    border: 1px solid black;
+}
+
+
+.box{
+    width: calc(100% / 10);
+}
+
+
+.bo{  
+ width: calc(100% / 9);
+}
+
+.b{  
+    width: calc(100% / 7);
+}
+
+.blue{
+    background-color: rgb(126, 126, 212)!important;
+}
+
+.white{
+    color:white;
+}
+
+.green{
+    background-color: green;
+}
+
+

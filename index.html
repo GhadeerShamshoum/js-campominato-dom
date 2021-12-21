@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="img/Logo.png" alt="">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><h3>Campo Minato:la Griglia</h3></a>
+                  </li> 
+                </ul>
+                <form class="d-flex ">
+                    <ul class="d-flex flex-row list-unstyled">
+                        <li class="nav-item text-decoration-none px-2 ">
+                            Difficoltà:
+                          </li>
+                          <li class=" px-2 ">
+                              <select name="select-options" id="select-options">
+                                  <option class="difficoltà" value="1">Easy</option>
+                                  <option class="difficoltà" value="2">Medium</option>
+                                  <option class="difficoltà" value="3">Hard</option>
+                              </select>
+                  
+                          </li>
+                  
+                          <li class="px-2 text-decoration-none">
+                              
+                              <button class="btn btn-primary btn-sm" id="button" type="button">Play</button>
+                          </li>
+                    </ul>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="ms_container_num col-6 d-flex flex-wrap justify-content-center align-items-center m-auto" id="container"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="d-flex  align-items-center">Made with &#10084;  by <a href="#">Boolean</a></div>
+            </div>
+
+        </div>
+
+    </footer>
+    
+
+
+  
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="myscript.js"></script>
+</body>
+</html>
