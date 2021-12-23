@@ -65,9 +65,7 @@ function createMines(){//creare le bombe
                 return positions          
 }
 
-function arrayIncludesValue(arrayValue, value){
-    for(let i=0; i<)
-}
+
 
 
 function gameOver(){

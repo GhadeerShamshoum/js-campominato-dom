@@ -46,8 +46,14 @@ main{
     color:white;
 }
 
-.green{
-    background-color: green;
+.red{
+    background-color: red;
+}
+
+#result{
+    text-align: center;
+    font-size: 30px;
+
 }
 
 
