@@ -12,14 +12,16 @@ Le validazioni e i controlli possiamo farli anche in un secondo momento.
 const scatola = document.getElementById('container');*/
 
 let button = document.getElementById("button");
-button.addEventListener("click", function(){
+const positions = [];
+button.addEventListener("click", function(){//buttone
    
 });
 
 document.getElementById('button').addEventListener('click',() => {
     let levelDiff = document.getElementById("select-options").value;
     const container = document.getElementById('container');
-    const numberOfMines = 16;
+    
+
     
     
         container.innerHTML = " ";
@@ -28,19 +30,7 @@ document.getElementById('button').addEventListener('click',() => {
                 console.log(i)                
                 container.innerHTML += '<div class="cell box d-flex justify-content-center align-items-center">' + i +'</div>';  
             }  
-            const positions = []    
-            for(let i=0; i < numberOfMines; i++){
-                
-                console.log(numberOfMines)
-                while(positions.length < numberOfMines){
-                    const position = Math.floor((Math.random() * 100) + 1)    
-                    if (!positions.length < numberOfMines){
-                        positions.push(position);
-                        console.log(position); 
-                    }  
-                }
-                return positions
-            } 
+            
             
 
         }else if (levelDiff=="2"){
@@ -54,28 +44,68 @@ document.getElementById('button').addEventListener('click',() => {
                 container.innerHTML += '<div class="cell b d-flex justify-content-center align-items-center">' + i +' </div>';  
             }
         }
-        
-            let cell = document.getElementsByClassName('cell');//add background color
-            for(let i=0; i<cell.length; i++){
-                cell[i].addEventListener("click", function(cell, numberOfMines){ 
-                    this.classList.add("blue")
-                    this.classList.add("white")
-                })
-                
-            }
-        
 
         
-
-        
-
-        
-
-
-        
-
-        
-        
+            clickCells()
+            createMines()
+            gameOver()
 });
+
+function createMines(){//creare le bombe
+    const numberOfMines = 16;         
+                console.log(numberOfMines)
+                while(positions.length < numberOfMines){
+                    const position = Math.floor((Math.random() * 100) + 1)    
+                    if (!positions.includes(position)){
+                        positions.push(position);
+                         
+                    }  
+                }
+                console.log(positions);
+                return positions          
+}
+
+function arrayIncludesValue(arrayValue, value){
+    for(let i=0; i<)
+}
+
+
+function gameOver(){
+    console.log("FINE");
+}
+
+
+function clickCells(){
+    let cell = document.getElementsByClassName('cell');//add background color
+    for(let i=0; i<cell.length; i++){
+        cell[i].addEventListener("click", function(){ 
+            const number = parseInt (this.innerHTML);
+            if(positions.includes(number)){
+                this.classList.add ("red");
+                document.getElementById("result").innerHTML = `Hai perso!Fine gioco!` ;
+                gameOver(); 
+            }
+            else{
+            this.classList.add("blue")
+            this.classList.add("white")
+            document.getElementById("result").innerHTML = `Hai vinto!` ;
+        }
+    })
+        
+    }
+}
+        
+
+        
+
+        
+
+        
+
+
+        
+
+        
+        
 
 
