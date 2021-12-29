@@ -11,8 +11,13 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Le validazioni e i controlli possiamo farli anche in un secondo momento.
 const scatola = document.getElementById('container');*/
 
+
+const numberOfMines = 16; 
+let attemptsPossible;
+let fine=false;
+let totalNum='';
+let listaPosizioniBombe='';
 let button = document.getElementById("button");
-const positions = [];
 button.addEventListener("click", function(){//buttone
    
 });
@@ -26,7 +31,8 @@ document.getElementById('button').addEventListener('click',() => {
     
         container.innerHTML = " ";
         if(levelDiff=="1"){
-            for(let i=1; i<=100; i++){//numeri da 1 a 100
+            totalNum=100;
+            for(let i=1; i<=totalNum; i++){//numeri da 1 a 100
                 console.log(i)                
                 container.innerHTML += '<div class="cell box d-flex justify-content-center align-items-center">' + i +'</div>';  
             }  
@@ -34,64 +40,93 @@ document.getElementById('button').addEventListener('click',() => {
             
 
         }else if (levelDiff=="2"){
-            for(let i=1; i<=81; i++){//numeri da 1 a 81
+            totalNum=81;
+            for(let i=1; i<=totalNum; i++){//numeri da 1 a 81
                 console.log(i)                
                 container.innerHTML += '<div class="cell bo d-flex justify-content-center align-items-center">' + i +'</div>';  
             }
         }else if (levelDiff=="3"){
-            for(let i=1; i<=49; i++){//numeri da 1 a 49
+            totalNum=49;
+            for(let i=1; i<=totalNum; i++){//numeri da 1 a 49
                 console.log(i)                
                 container.innerHTML += '<div class="cell b d-flex justify-content-center align-items-center">' + i +' </div>';  
             }
         }
+        attemptsPossible = totalNum - numberOfMines;
+        const listaPosizioniBombe = createMines();
+    
 
         
-            clickCells()
-            createMines()
-            gameOver()
-});
+            clickCells();
+            createMines();
+            
 
-function createMines(){//creare le bombe
-    const numberOfMines = 16;         
-                console.log(numberOfMines)
-                while(positions.length < numberOfMines){
-                    const position = Math.floor((Math.random() * 100) + 1)    
-                    if (!positions.includes(position)){
-                        positions.push(position);
-                         
-                    }  
-                }
-                console.log(positions);
-                return positions          
+function createMines(){//creare le bombe       
+                
+    const positions = []; 
+        while(positions.length < numberOfMines){
+            const position = generaRandomInt(1,totalNum);    
+            if (!arrayIncludeValure(positions,position)){
+                positions.push(position);                      
+            }  
+        }
+        console.log(positions);
+        return positions          
+}
+
+function arrayIncludeValure(arrayValue, value){
+    for(let i=0; i<arrayValue.length; i++){
+        if(arrayValue[i] == value){
+        return true;
+        }
+    }
+    return false;
+}
+function generaRandomInt(min,max) {
+    let result = Math.floor(Math.random() * (max-min + 1)) +min;
+    return result; 
 }
 
 
-
-
 function gameOver(){
+    fine=true;
+    const listCells = document.querySelectorAll(".cell");
+    for (let i=0; i<listCells.length; i++){
+        const cella = listCells[i]
+        const number = parseInt (cella.innerHTML);
+        if(arrayIncludeValure(listaPosizioniBombe,number)){  
+            cella.classList.add("bomb");
+        }
+        
+        
+    }
     console.log("FINE");
 }
 
 
+
 function clickCells(){
-    let cell = document.getElementsByClassName('cell');//add background color
-    for(let i=0; i<cell.length; i++){
-        cell[i].addEventListener("click", function(){ 
-            const number = parseInt (this.innerHTML);
-            if(positions.includes(number)){
-                this.classList.add ("red");
-                document.getElementById("result").innerHTML = `Hai perso!Fine gioco!` ;
-                gameOver(); 
+    
+        let cell = document.getElementsByClassName('cell');//add background color
+        for(let i=0; i<cell.length; i++){
+            cell[i].addEventListener("click", function(){ 
+                const number = parseInt (this.innerHTML);
+                if( arrayIncludeValure(listaPosizioniBombe,number)){  
+                    
+                     gameOver(); 
+                }
+                else{
+                this.classList.add("safe")
             }
-            else{
-            this.classList.add("blue")
-            this.classList.add("white")
-            document.getElementById("result").innerHTML = `Hai vinto!` ;
+        })
+            
         }
-    })
-        
-    }
+    
 }
+});
+
+
+
         
 
         

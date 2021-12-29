@@ -38,16 +38,15 @@ main{
     width: calc(100% / 7);
 }
 
-.blue{
-    background-color: rgb(126, 126, 212)!important;
-}
-
-.white{
+.safe{
+    background-color: rgb(126, 126, 212);
     color:white;
 }
 
-.red{
+
+.bomb{
     background-color: red;
+    color:white;
 }
 
 #result{
